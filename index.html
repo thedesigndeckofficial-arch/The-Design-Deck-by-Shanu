@@ -1,20 +1,895 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta name="description" content="Design Deck — Creative Design Studio">
-  <meta name="theme-color" content="#090909">
+  <title>The Design Deck by Shanmukh</title>
 
-  <title>Design Deck — Creative Design Studio</title>
+  <meta
+    name="description"
+    content="The Design Deck by Shanmukh — Premium wedding albums, cinematic edits, invitations and creative design."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --black: #090909;
+      --dark: #111111;
+      --card: #151515;
+      --white: #f7f5f0;
+      --muted: #aaa69e;
+      --gold: #c8a96b;
+      --border: rgba(255,255,255,.12);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.6;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
+    /* NAVBAR */
+
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      background: rgba(9,9,9,.72);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    nav {
+      height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      font-size: 13px;
+      color: #ccc;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .nav-btn {
+      padding: 11px 18px;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      font-size: 13px;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(0,0,0,.92) 0%,
+          rgba(0,0,0,.62) 48%,
+          rgba(0,0,0,.30) 100%
+        ),
+        url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2200&q=90")
+        center/cover;
+    }
+
+    .hero-content {
+      max-width: 760px;
+      padding-top: 70px;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 12px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(55px, 9vw, 110px);
+      line-height: .95;
+      letter-spacing: -5px;
+      font-weight: 600;
+    }
+
+    .hero h1 em {
+      font-family: "Playfair Display", serif;
+      font-weight: 500;
+      color: #ddd7cb;
+    }
+
+    .hero p {
+      max-width: 600px;
+      color: #c4c0b9;
+      font-size: 18px;
+      margin: 30px 0;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 15px 23px;
+      border-radius: 40px;
+      font-size: 13px;
+      font-weight: 700;
+      transition: .25s;
+    }
+
+    .btn-primary {
+      background: var(--white);
+      color: #111;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      background: white;
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,.25);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,.08);
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 110px 0;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 30px;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(38px, 5vw, 64px);
+      line-height: 1;
+      letter-spacing: -3px;
+    }
+
+    .section-title p {
+      max-width: 400px;
+      color: var(--muted);
+    }
+
+    /* SERVICES */
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 15px;
+    }
+
+    .service {
+      position: relative;
+      overflow: hidden;
+      min-height: 300px;
+      padding: 32px;
+      border-radius: 25px;
+      border: 1px solid var(--border);
+      background: var(--card);
+    }
+
+    .service-number {
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+
+    .service h3 {
+      font-size: 30px;
+      margin-top: 90px;
+      margin-bottom: 8px;
+    }
+
+    .service p {
+      color: var(--muted);
+      max-width: 430px;
+    }
+
+    .service::after {
+      content: "";
+      position: absolute;
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      background: rgba(200,169,107,.08);
+      right: -70px;
+      bottom: -70px;
+      filter: blur(10px);
+    }
+
+    /* PORTFOLIO */
+
+    .portfolio {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 15px;
+    }
+
+    .portfolio-card {
+      position: relative;
+      height: 500px;
+      overflow: hidden;
+      border-radius: 25px;
+      background: #111;
+    }
+
+    .portfolio-card img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform .7s;
+    }
+
+    .portfolio-card:hover img {
+      transform: scale(1.06);
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: end;
+      padding: 28px;
+      background: linear-gradient(
+        transparent 40%,
+        rgba(0,0,0,.85)
+      );
+    }
+
+    .portfolio-overlay small {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .portfolio-overlay h3 {
+      font-size: 27px;
+      margin-top: 5px;
+    }
+
+    /* ABOUT */
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-image {
+      height: 550px;
+      overflow: hidden;
+      border-radius: 25px;
+    }
+
+    .about-image img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about h2 {
+      font-size: clamp(40px, 5vw, 70px);
+      line-height: 1;
+      letter-spacing: -3px;
+    }
+
+    .about h2 em {
+      font-family: "Playfair Display", serif;
+      font-weight: 500;
+      color: var(--gold);
+    }
+
+    .about-text {
+      color: var(--muted);
+      font-size: 17px;
+      margin: 25px 0;
+    }
+
+    /* CTA */
+
+    .cta {
+      position: relative;
+      overflow: hidden;
+      padding: 90px 30px;
+      text-align: center;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      background:
+        linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.72)),
+        url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=2000&q=90")
+        center/cover;
+    }
+
+    .cta h2 {
+      max-width: 850px;
+      margin: auto;
+      font-size: clamp(42px, 6vw, 75px);
+      line-height: .98;
+      letter-spacing: -4px;
+    }
+
+    .cta p {
+      max-width: 550px;
+      margin: 25px auto;
+      color: #c0bdb6;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 45px 0;
+      color: #777;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* FLOATING WHATSAPP */
+
+    .whatsapp {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #25D366;
+      color: white;
+      font-size: 25px;
+      z-index: 100;
+      box-shadow: 0 10px 35px rgba(0,0,0,.4);
+    }
+
+    /* MOBILE */
+
+    @media(max-width: 800px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: 90vh;
+      }
+
+      .hero h1 {
+        letter-spacing: -3px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      section {
+        padding: 75px 0;
+      }
+
+      .section-title {
+        display: block;
+      }
+
+      .section-title p {
+        margin-top: 18px;
+      }
+
+      .services,
+      .portfolio,
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .portfolio-card {
+        height: 430px;
+      }
+
+      .about-image {
+        height: 420px;
+      }
+
+      .about {
+        gap: 35px;
+      }
+
+      .footer-inner {
+        display: block;
+      }
+
+      .footer-inner div + div {
+        margin-top: 10px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <div id="app"></div>
+<!-- ================= NAVBAR ================= -->
 
-  <script src="design-deck.js"></script>
+<header>
+  <div class="container">
+    <nav>
+
+      <a href="#" class="logo">
+        The Design <span>Deck</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#work">Portfolio</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <!-- CHANGE PHONE NUMBER HERE -->
+      <a href="tel:+919999999999" class="nav-btn">
+        Call Now
+      </a>
+
+    </nav>
+  </div>
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+  <div class="container">
+
+    <div class="hero-content">
+
+      <div class="eyebrow">
+        The Design Deck · by Shanmukh
+      </div>
+
+      <h1>
+        Your moments.<br>
+        <em>Beautifully designed.</em>
+      </h1>
+
+      <p>
+        Premium wedding albums, cinematic edits, invitations
+        and creative visual designs made to turn your moments
+        into something unforgettable.
+      </p>
+
+      <div class="buttons">
+
+        <a href="#work" class="btn btn-primary">
+          Explore Portfolio ↗
+        </a>
+
+        <!-- CHANGE WHATSAPP NUMBER HERE -->
+        <a
+          href="https://wa.me/919999999999"
+          target="_blank"
+          class="btn btn-outline"
+        >
+          WhatsApp Me
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= SERVICES ================= -->
+
+<section id="services">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <h2>
+        What I do.
+      </h2>
+
+      <p>
+        Creative services for weddings, birthdays, events,
+        photographers and brands.
+      </p>
+
+    </div>
+
+
+    <div class="services">
+
+      <div class="service">
+
+        <div class="service-number">
+          01 — WEDDING
+        </div>
+
+        <h3>
+          Album Designing
+        </h3>
+
+        <p>
+          Premium wedding album layouts with elegant
+          storytelling, cinematic composition and
+          professional finishing.
+        </p>
+
+      </div>
+
+
+      <div class="service">
+
+        <div class="service-number">
+          02 — PHOTO
+        </div>
+
+        <h3>
+          Photo Editing
+        </h3>
+
+        <p>
+          High-end photo retouching, color grading,
+          cinematic looks and creative photo manipulation.
+        </p>
+
+      </div>
+
+
+      <div class="service">
+
+        <div class="service-number">
+          03 — EVENTS
+        </div>
+
+        <h3>
+          Invitation Design
+        </h3>
+
+        <p>
+          Wedding, birthday, engagement and event
+          invitations designed with a premium visual style.
+        </p>
+
+      </div>
+
+
+      <div class="service">
+
+        <div class="service-number">
+          04 — CREATIVE
+        </div>
+
+        <h3>
+          Creative Designs
+        </h3>
+
+        <p>
+          Posters, social media creatives, promotional
+          designs and visual concepts for businesses.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= PORTFOLIO ================= -->
+
+<section id="work">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <h2>
+        Selected work.
+      </h2>
+
+      <p>
+        A glimpse of the visual style behind
+        The Design Deck.
+      </p>
+
+    </div>
+
+
+    <div class="portfolio">
+
+
+      <!-- IMAGE 1 -->
+
+      <div class="portfolio-card">
+
+        <img
+          src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=90"
+          alt="Wedding photography"
+        >
+
+        <div class="portfolio-overlay">
+
+          <div>
+            <small>Wedding</small>
+            <h3>Cinematic Stories</h3>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- IMAGE 2 -->
+
+      <div class="portfolio-card">
+
+        <img
+          src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1200&q=90"
+          alt="Wedding event"
+        >
+
+        <div class="portfolio-overlay">
+
+          <div>
+            <small>Events</small>
+            <h3>Beautiful Moments</h3>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- IMAGE 3 -->
+
+      <div class="portfolio-card">
+
+        <img
+          src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=90"
+          alt="Wedding couple"
+        >
+
+        <div class="portfolio-overlay">
+
+          <div>
+            <small>Creative</small>
+            <h3>Love In Frames</h3>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about">
+
+  <div class="container">
+
+    <div class="about">
+
+
+      <div class="about-image">
+
+        <img
+          src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1400&q=90"
+          alt="Creative wedding photography"
+        >
+
+      </div>
+
+
+      <div>
+
+        <div class="eyebrow">
+          About The Design Deck
+        </div>
+
+        <h2>
+          Creativity with a
+          <em>personal touch.</em>
+        </h2>
+
+        <p class="about-text">
+
+          The Design Deck by Shanmukh is a creative design
+          service focused on premium visuals, wedding albums,
+          cinematic edits and memorable event designs.
+
+        </p>
+
+        <p class="about-text">
+
+          Every project is designed with attention to detail,
+          clean composition and a strong visual identity.
+
+        </p>
+
+        <a href="#contact" class="btn btn-primary">
+          Let's Work Together
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact">
+
+  <div class="container">
+
+    <div class="cta">
+
+      <div class="eyebrow">
+        Have a project?
+      </div>
+
+      <h2>
+        Let's create something
+        worth remembering.
+      </h2>
+
+      <p>
+        Have a wedding album, invitation, photo editing
+        or creative project in mind?
+        Let's talk.
+      </p>
+
+      <div class="buttons" style="justify-content:center;">
+
+        <!-- CHANGE PHONE NUMBER HERE -->
+
+        <a
+          href="tel:+919999999999"
+          class="btn btn-primary"
+        >
+          Call Now
+        </a>
+
+
+        <!-- CHANGE WHATSAPP NUMBER HERE -->
+
+        <a
+          href="https://wa.me/919999999999?text=Hi%20Shanmukh%2C%20I%20want%20to%20discuss%20a%20project."
+          target="_blank"
+          class="btn btn-outline"
+        >
+          WhatsApp
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+  <div class="container">
+
+    <div class="footer-inner">
+
+      <div>
+        © 2026 The Design Deck by Shanmukh
+      </div>
+
+      <div>
+        Creative · Cinematic · Personal
+      </div>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<!-- FLOATING WHATSAPP -->
+
+<a
+  href="https://wa.me/919999999999"
+  target="_blank"
+  class="whatsapp"
+  aria-label="WhatsApp"
+>
+  ☎
+</a>
+
 
 </body>
 </html>
