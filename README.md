@@ -1,4 +1,1 @@
-The-Design-Deck/
-│
-├── index.html
-└── logo.png
+The-Design-Deck
