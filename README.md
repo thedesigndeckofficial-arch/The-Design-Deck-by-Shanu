@@ -1,2 +1,4 @@
-# The-Design-Deck-by-Shanu
-Good professional strating
+The-Design-Deck/
+│
+├── index.html
+└── logo.png
